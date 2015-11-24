@@ -24,27 +24,21 @@ var movieSchema = mongoose.Schema({
 		year_of_release: Number
 
 })
-//Compile our model
-
-// var Movie = mongoose.model('Movie', movieSchema);
 
 
-// app.use(bodyParser.urlencoded({extended:true}));
-// //the movie array which was initially here has been added in the databse using POSTMAN and then deleted.
+ app. get('/save-number', function(req,res){
+ 	Movie.find(function(err,movie){
+ 		if(err){
+ 			console.log(err)
+ 		}else{
 
-//  app. get('/movies', function(req,res){
-//  	Movie.find(function(err,movie){
-//  		if(err){
-//  			console.log(err)
-//  		}else{
+			res.json(movie);
 
-// 			res.json(movie);
+ 		}
 
-//  		}
+ 	});
 
-//  	});
-
-//  });
+ });
 
 //The following is the route of changing movie or adding a new
  app.post('/save-number',function(req, res){
@@ -67,63 +61,8 @@ movie.save(function(err,movie){
 
  });
 
-
-
-
-// static database
-// var server = http.createServer(
-// 				dispatch({
-					
-// 					'/movies' : {
-
-// 						'GET /' :function(request, response){
-// 							movies = [
-// 							{
-// 										title: 'Suits',
-// 										category: ['Drama','Investigative','Romance'],
-// 										main_actors: [{
-// 												first_name: 'Harvey',
-// 												second_name: 'Lawis'
-
-// 										},{
-// 												first_name: 'Micheal',
-// 												second_name:'Ross'
-// 										}]
-
-										
-// 									},
-// 									{
-// 										title: 'Constant Gardener',
-// 										category: ['Drama','Mystery','Romance'],
-// 										main_actors: [{
-// 												first_name: 'Maley',
-// 												second_name: 'Rick'
-// 										},
-// 										{
-// 												first_name:'Ralph',
-// 												second_name:'Davis'
-
-
-// 										}]
-
-										
-// 									},
-// 									{
-// 										title: 'Beyond the Horizon',
-// 										category: ['Biography','Drama','Romance'],
-// 										main_actors: [{
-// 												first_name: 'Maley',
-// 												second_name: 'Dowen'
-// 										},{}]
-
-										
-// 									}
-// 							]
-// 							console.log('Movies GET /')
-// 							response.end(JSON.stringify(movies));
-// 						},
 // 						//Creating a dynamic database
-						'POST /':function(request,response){
+						'POST /'; function (request,response){
 							//Get parameters from the form
 							formData = '',
 							request.on('data',function(chunk){
